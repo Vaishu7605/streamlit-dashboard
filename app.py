@@ -86,7 +86,8 @@ cl1, cl2 = st.columns(2)
 with cl1:
     with st.expander("Category_Viewdata"):
         st.write(category_df.style.background_gradient(cmap="Blues"))
-        csv = category_df.to_csv(index = False).encode('utf-8')
+        csv = region.to_csv(index=False).encode('utf-8')
+
         st.download_button("Download Data", data = csv, file_name = "Category.csv", mime = "text/csv",
                            help = 'Click here to download the data as a CSV file')
         
