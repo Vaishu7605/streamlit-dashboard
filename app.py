@@ -95,7 +95,8 @@ with cl2:
     with st.expander("Region_Viewdata"):
         region = filtere_df.groupby(by = "Region", as_index = False)["Sales"].sum()
         st.write(region.style.background_gradient(cmap="Oranges"))
-        csv = category_df.to_csv(index = False).encode('utf-8')
+        csv = region.to_csv(index=False).encode('utf-8')
+
         st.download_button("Download Data", data = csv, file_name = "Region.csv", mime = "text/csv",
                            help = 'Click here to download the data as a CSV file')
         
